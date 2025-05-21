@@ -1,16 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<div class="flex-wrap w-full">
+  <p style="color: green"><%= notice %></p>
 
-<% content_for :title, "Exercises" %>
+  <% content_for :title, "Exercises" %>
 
-<h1>Exercises</h1>
+  <div class="flex justify-between items-center mb-5">
+    <h1 class="text-3xl">Exercises</h1>
+    <%= link_to "New exercise", new_exercise_path, class: "bg-slate-600 text-white p-3 rounded-lg"%>
+  </div>
 
-<div id="exercises">
-  <% @exercises.each do |exercise| %>
-    <%= render exercise %>
-    <p>
-      <%= link_to "Show this exercise", exercise %>
-    </p>
-  <% end %>
+  <div id="exercises" class="">
+    <div class="flex flex-row">
+      <div class="basis-2/3 md:basis-7/8">
+        <strong>Name</strong>
+      </div>
+      <div class="basis-1/3 md:basis-1/8">
+        <strong>Category</strong>
+      </div>
+    </div>
+
+    <% @exercises.each do |exercise| %>
+      <%= render exercise %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New exercise", new_exercise_path %>
